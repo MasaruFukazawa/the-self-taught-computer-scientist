@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "the-self-taught-computer-scientist"
+version = "0.1.0"
+description = ""
+authors = ["Masaru Fukazawa <upw.ponsuke@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+mypy = "^1.6.1"
+pytest = "^7.4.3"
+isort = "^5.12.0"
+black = "^23.10.1"
+flake8 = "^6.1.0"
+ipython = "^8.17.2"
+bandit = "^1.7.5"
+pytest-cov = "^4.1.0"
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
