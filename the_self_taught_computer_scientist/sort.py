@@ -20,7 +20,7 @@ def insertion_sort(a_list: list) -> list:
     挿入ソート
     """
     for i in range(1, len(a_list)):
-        value = i
+        value = a_list[i]
 
         while (i > 0) and (a_list[i - 1] > value):
             a_list[i] = a_list[i - 1]
