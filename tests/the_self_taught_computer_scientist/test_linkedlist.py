@@ -72,11 +72,11 @@ def test_reverse_linkedlist():
     ]
 
 
-# def test_detect_cycle_linkedlist():
-#    linkedlist: LinkedList = LinkedList()
-#    linkedlist.append(100)
-#    linkedlist.append(200)
-#    linkedlist.append(300)
-#    linkedlist.append(400)
-#    linkedlist.append(500)
-#    assert not linkedlist.detect_cycle()
+def test_detect_cycle_linkedlist():
+    linkedlist: LinkedList = LinkedList()
+    linkedlist.append(100)
+    linkedlist.append(200)
+    linkedlist.append(300)
+    linkedlist.append(400)
+    linkedlist.append(500)
+    assert not linkedlist.detect_cycle()

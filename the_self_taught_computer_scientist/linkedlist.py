@@ -7,13 +7,33 @@ from typing import Optional
 
 class Node:
     def __init__(self, data: int, next: Optional[Node] = None) -> None:
-        self.data: int = data
-        self.next: Optional[Node] = next
+        self.__data: int = data
+        self.__next: Optional[Node] = next
+
+    @property
+    def data(self) -> int:
+        return self.__data
+
+    @property
+    def next(self):
+        return self.__next
+
+    @next.setter
+    def next(self, node: Node):
+        self.__next = node
 
 
 class LinkedList:
     def __init__(self) -> None:
-        self.head: Optional[Node] = None
+        self.__head: Optional[Node] = None
+
+    @property
+    def head(self) -> Optional[Node]:
+        return self.__head
+
+    @head.setter
+    def head(self, node: Node):
+        self.__head = node
 
     @property
     def datas(self) -> list[int]:
@@ -29,7 +49,7 @@ class LinkedList:
     def append(self, data: int) -> None:
         if not self.head:
             self.head = Node(data)
-            return None
+            return
 
         current: Node = self.head
 
@@ -86,16 +106,19 @@ class LinkedList:
 
         self.head = previous
 
-    # def detect_cycle(self) -> None:
-    #    if not self.head:
-    #        return
-    #    slow = self.head
-    #    fast = self.head
-    #    while True:
-    #        try:
-    #            slow = slow.next
-    #            fast = fast.next.next
-    #            if slow is fast:
-    #                return True
-    #        except Exception:
-    #            return False
+    def detect_cycle(self) -> bool:
+        if not self.head:
+            return False
+
+        slow: Node = self.head
+        fast: Node = self.head
+
+        while True:
+            try:
+                slow = slow.next
+                fast = fast.next.next
+            except AttributeError:
+                return False
+
+            if slow is fast:
+                return True
