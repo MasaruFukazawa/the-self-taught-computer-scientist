@@ -98,7 +98,6 @@ class MinStack:
         self.__min: list[int] = []
 
     def push(self, data: int) -> None:
-
         if len(self.__main) == 0:
             self.__min.append(data)
         elif data <= self.__min[-1]:
